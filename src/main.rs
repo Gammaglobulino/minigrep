@@ -1,13 +1,13 @@
 extern crate minigrep;
-use std::env;
+use std::env::args;
 use std::process;
 use minigrep::Config;
 
 
 fn main(){
-   let in_args:Vec<String>=env::args().collect();
-   let config=Config::new_with_args(&in_args).unwrap_or_else(|err|{
-       println!("Error parsing the in arguments: {}",err);
+   
+   let config=Config::new_with_args(std::env::args()).unwrap_or_else(|err|{
+       eprintln!("Error parsing the in arguments: {}",err);
        process::exit(1);
    });
       
@@ -15,7 +15,7 @@ fn main(){
    println!("inside the filename: > {:?}",config.filename);
 
    minigrep::run(config).unwrap_or_else(|err|{
-    println!("Error opening the file: {}",err);
+    eprintln!("Error opening the file: {}",err);
     process::exit(1);
 });
    
