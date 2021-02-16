@@ -46,11 +46,11 @@ impl Config{
         args.next(); //skip app name
         let query = match args.next(){
             Some(arg) => arg,
-            None => String::from("")
+            None => return Err(MyError::new("Please provide a query string"))
         };
         let filename=match args.next(){
             Some(arg) => arg,
-            None => String::from("")
+            None => return Err(MyError::new("Please provide a filename"))
         };
         match args.next(){
                 Some(arg) =>{
