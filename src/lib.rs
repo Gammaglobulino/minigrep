@@ -140,13 +140,9 @@ mod test{
 }
 
 fn search_word<'a>(contents:& 'a str,query:&str)->Vec<& 'a str>{
-   let mut out_lines= Vec::new();
-   for line in contents.lines(){
-       if line.contains(query){
-           out_lines.push(line.trim());
-       }
-   }
-   out_lines
+    contents.lines()
+   .filter(|line|line.contains(query))
+   .collect()
 
 }
 fn search_word_insensitive<'a>(contents:& 'a str,query:&str)->Vec<& 'a str>{
