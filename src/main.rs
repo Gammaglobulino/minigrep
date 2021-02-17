@@ -2,7 +2,14 @@ extern crate minigrep;
 use std::env::args;
 use std::process;
 use minigrep::Config;
-
+/// *********************
+/// * minigrep
+/// * search for a world inside a file
+/// * use: should intantiate a Config class
+/// * Example
+/// *
+/// * # minigrep::run(config)
+/// * return an Option
 
 fn main(){
    
